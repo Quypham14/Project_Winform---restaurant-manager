@@ -1,0 +1,17 @@
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.Login.resources
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.csproj.GenerateResource.cache
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.GeneratedMSBuildEditorConfig.editorconfig
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.AssemblyInfoInputs.cache
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.AssemblyInfo.cs
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.csproj.CoreCompileInputs.cache
+C:\BTL_CSDL\QuanLyNhaHang\bin\Debug\net8.0-windows\QuanLyNhaHang.exe
+C:\BTL_CSDL\QuanLyNhaHang\bin\Debug\net8.0-windows\QuanLyNhaHang.deps.json
+C:\BTL_CSDL\QuanLyNhaHang\bin\Debug\net8.0-windows\QuanLyNhaHang.runtimeconfig.json
+C:\BTL_CSDL\QuanLyNhaHang\bin\Debug\net8.0-windows\QuanLyNhaHang.dll
+C:\BTL_CSDL\QuanLyNhaHang\bin\Debug\net8.0-windows\QuanLyNhaHang.pdb
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.dll
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\refint\QuanLyNhaHang.dll
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.pdb
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.genruntimeconfig.cache
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\ref\QuanLyNhaHang.dll
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.TableManager.resources
