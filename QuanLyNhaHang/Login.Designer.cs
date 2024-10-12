@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             panel1 = new Panel();
             textBoxUserName = new TextBox();
             labelUsername = new Label();
@@ -47,27 +48,27 @@
             panel1.Location = new Point(1, 0);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(889, 125);
+            panel1.Size = new Size(437, 89);
             panel1.TabIndex = 0;
             // 
             // textBoxUserName
             // 
             textBoxUserName.BorderStyle = BorderStyle.FixedSingle;
             textBoxUserName.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxUserName.Location = new Point(269, 42);
+            textBoxUserName.Location = new Point(170, 40);
             textBoxUserName.Margin = new Padding(4);
             textBoxUserName.Name = "textBoxUserName";
-            textBoxUserName.Size = new Size(265, 30);
+            textBoxUserName.Size = new Size(205, 26);
             textBoxUserName.TabIndex = 1;
             // 
             // labelUsername
             // 
             labelUsername.AutoSize = true;
-            labelUsername.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelUsername.Location = new Point(45, 46);
+            labelUsername.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelUsername.Location = new Point(12, 45);
             labelUsername.Margin = new Padding(4, 0, 4, 0);
             labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(156, 24);
+            labelUsername.Size = new Size(150, 21);
             labelUsername.TabIndex = 0;
             labelUsername.Text = "TÊN ĐĂNG NHẬP: ";
             // 
@@ -75,38 +76,39 @@
             // 
             panel2.Controls.Add(textBoxPassWord);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(1, 134);
+            panel2.Location = new Point(1, 97);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(889, 125);
+            panel2.Size = new Size(437, 58);
             panel2.TabIndex = 1;
             // 
             // textBoxPassWord
             // 
             textBoxPassWord.BorderStyle = BorderStyle.FixedSingle;
             textBoxPassWord.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPassWord.Location = new Point(269, 42);
+            textBoxPassWord.Location = new Point(170, 4);
             textBoxPassWord.Margin = new Padding(4);
             textBoxPassWord.Name = "textBoxPassWord";
-            textBoxPassWord.Size = new Size(265, 30);
+            textBoxPassWord.Size = new Size(205, 26);
             textBoxPassWord.TabIndex = 1;
             textBoxPassWord.UseSystemPasswordChar = true;
+            textBoxPassWord.TextChanged += textBoxPassWord_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(45, 46);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 9);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(100, 24);
+            label1.Size = new Size(98, 21);
             label1.TabIndex = 0;
             label1.Text = "MẬT KHẨU:";
             // 
             // buttonLogin
             // 
             buttonLogin.BackColor = Color.LawnGreen;
-            buttonLogin.Location = new Point(471, 315);
+            buttonLogin.Location = new Point(46, 162);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(111, 36);
             buttonLogin.TabIndex = 3;
@@ -117,7 +119,7 @@
             // buttonExit
             // 
             buttonExit.BackColor = Color.Red;
-            buttonExit.Location = new Point(657, 315);
+            buttonExit.Location = new Point(241, 162);
             buttonExit.Name = "buttonExit";
             buttonExit.Size = new Size(111, 36);
             buttonExit.TabIndex = 4;
@@ -127,19 +129,23 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(10F, 24F);
+            AcceptButton = buttonLogin;
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(900, 410);
+            CancelButton = buttonExit;
+            ClientSize = new Size(461, 210);
             Controls.Add(buttonExit);
             Controls.Add(buttonLogin);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ĐĂNG NHẬP";
+            Text = "Đăng nhập";
             FormClosing += Login_FormClosing;
             Load += Login_Load;
             panel1.ResumeLayout(false);
