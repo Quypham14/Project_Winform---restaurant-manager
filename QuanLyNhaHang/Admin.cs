@@ -16,5 +16,10 @@ namespace QuanLyNhaHang
         {
             InitializeComponent();
         }
+
+        private void buttonDeleteFood_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

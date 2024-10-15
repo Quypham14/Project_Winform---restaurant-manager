@@ -36,3 +36,7 @@ D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\r
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.AccountProfile.resources
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.Properties.Resources.resources
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.Admin.resources
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.AccountProfile.resources
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.Admin.resources
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.Properties.Resources.resources
+C:\BTL_CSDL\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.sourcelink.json

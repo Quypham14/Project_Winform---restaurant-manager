@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\QuanLyNhaHang.csproj": {}
+    "C:\\BTL_CSDL\\QuanLyNhaHang\\QuanLyNhaHang.csproj": {}
   },
   "projects": {
-    "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\QuanLyNhaHang.csproj": {
+    "C:\\BTL_CSDL\\QuanLyNhaHang\\QuanLyNhaHang.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\QuanLyNhaHang.csproj",
+        "projectUniqueName": "C:\\BTL_CSDL\\QuanLyNhaHang\\QuanLyNhaHang.csproj",
         "projectName": "QuanLyNhaHang",
-        "projectPath": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\QuanLyNhaHang.csproj",
-        "packagesPath": "C:\\Users\\phams\\.nuget\\packages\\",
-        "outputPath": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\obj\\",
+        "projectPath": "C:\\BTL_CSDL\\QuanLyNhaHang\\QuanLyNhaHang.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\BTL_CSDL\\QuanLyNhaHang\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\phams\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

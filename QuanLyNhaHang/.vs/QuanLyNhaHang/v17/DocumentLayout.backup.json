@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\",
+  "WorkspaceRootPath": "C:\\BTL_CSDL\\QuanLyNhaHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|c:\\btl_csdl\\quanlynhahang\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|c:\\btl_csdl\\quanlynhahang\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|c:\\btl_csdl\\quanlynhahang\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|c:\\btl_csdl\\quanlynhahang\\tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,55 +26,55 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\BTL_CSDL\\QuanLyNhaHang\\Admin.cs",
+              "RelativeDocumentMoniker": "Admin.cs",
+              "ToolTip": "C:\\BTL_CSDL\\QuanLyNhaHang\\Admin.cs*",
+              "RelativeToolTip": "Admin.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAEwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:20:03.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TableManager.cs [Design]",
+              "DocumentMoniker": "C:\\BTL_CSDL\\QuanLyNhaHang\\TableManager.cs",
+              "RelativeDocumentMoniker": "TableManager.cs",
+              "ToolTip": "C:\\BTL_CSDL\\QuanLyNhaHang\\TableManager.cs [Design]",
+              "RelativeToolTip": "TableManager.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:16:35.062Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Login.cs [Design]",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Login.cs",
+              "DocumentMoniker": "C:\\BTL_CSDL\\QuanLyNhaHang\\Login.cs",
               "RelativeDocumentMoniker": "Login.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Login.cs [Design]",
+              "ToolTip": "C:\\BTL_CSDL\\QuanLyNhaHang\\Login.cs [Design]",
               "RelativeToolTip": "Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T10:51:46.461Z",
+              "WhenOpened": "2024-10-12T14:16:28.747Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Admin.cs [Design]",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Admin.cs",
+              "DocumentMoniker": "C:\\BTL_CSDL\\QuanLyNhaHang\\Admin.cs",
               "RelativeDocumentMoniker": "Admin.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Admin.cs [Design]*",
+              "ToolTip": "C:\\BTL_CSDL\\QuanLyNhaHang\\Admin.cs [Design]*",
               "RelativeToolTip": "Admin.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T04:12:08.324Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TableManager.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs",
-              "RelativeDocumentMoniker": "TableManager.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs",
-              "RelativeToolTip": "TableManager.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAwCkAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T19:40:32.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TableManager.cs [Design]",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs",
-              "RelativeDocumentMoniker": "TableManager.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs [Design]",
-              "RelativeToolTip": "TableManager.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T19:21:05.757Z",
+              "WhenOpened": "2024-10-12T14:16:25.607Z",
               "EditorCaption": " [Design]"
             }
           ]
