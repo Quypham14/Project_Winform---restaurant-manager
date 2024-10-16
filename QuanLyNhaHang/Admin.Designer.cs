@@ -478,7 +478,7 @@
             panel11.Controls.Add(buttonEditCatagory);
             panel11.Controls.Add(buttonDeleteCatagory);
             panel11.Controls.Add(buttonAddCatagory);
-            panel11.Location = new Point(3, 10);
+            panel11.Location = new Point(3, 6);
             panel11.Name = "panel11";
             panel11.Size = new Size(386, 58);
             panel11.TabIndex = 11;
@@ -569,7 +569,7 @@
             // 
             panel13.Controls.Add(textBoxIdCatagory);
             panel13.Controls.Add(label5);
-            panel13.Location = new Point(399, 68);
+            panel13.Location = new Point(399, 74);
             panel13.Margin = new Padding(4);
             panel13.Name = "panel13";
             panel13.Size = new Size(366, 56);
@@ -617,7 +617,7 @@
             // 
             panel16.Controls.Add(comboBoxStatusTable);
             panel16.Controls.Add(label8);
-            panel16.Location = new Point(402, 201);
+            panel16.Location = new Point(402, 197);
             panel16.Margin = new Padding(4);
             panel16.Name = "panel16";
             panel16.Size = new Size(366, 56);
@@ -665,7 +665,7 @@
             // buttonDisplayTavle
             // 
             buttonDisplayTavle.BackColor = Color.MediumTurquoise;
-            buttonDisplayTavle.Location = new Point(261, 6);
+            buttonDisplayTavle.Location = new Point(261, 3);
             buttonDisplayTavle.Name = "buttonDisplayTavle";
             buttonDisplayTavle.Size = new Size(81, 52);
             buttonDisplayTavle.TabIndex = 3;
@@ -706,7 +706,7 @@
             // 
             panel14.Controls.Add(textBoxNameTable);
             panel14.Controls.Add(label6);
-            panel14.Location = new Point(402, 137);
+            panel14.Location = new Point(402, 133);
             panel14.Margin = new Padding(4);
             panel14.Name = "panel14";
             panel14.Size = new Size(366, 56);
@@ -739,7 +739,7 @@
             // 
             panel15.Controls.Add(textBoxIdTable);
             panel15.Controls.Add(label7);
-            panel15.Location = new Point(402, 73);
+            panel15.Location = new Point(402, 69);
             panel15.Margin = new Padding(4);
             panel15.Name = "panel15";
             panel15.Size = new Size(366, 56);
@@ -798,7 +798,7 @@
             // 
             panel17.Controls.Add(comboBoxStatusAccount);
             panel17.Controls.Add(label9);
-            panel17.Location = new Point(402, 201);
+            panel17.Location = new Point(402, 197);
             panel17.Margin = new Padding(4);
             panel17.Name = "panel17";
             panel17.Size = new Size(366, 56);
@@ -846,7 +846,7 @@
             // buttonDisplayAccount
             // 
             buttonDisplayAccount.BackColor = Color.MediumTurquoise;
-            buttonDisplayAccount.Location = new Point(261, 6);
+            buttonDisplayAccount.Location = new Point(261, 3);
             buttonDisplayAccount.Name = "buttonDisplayAccount";
             buttonDisplayAccount.Size = new Size(81, 52);
             buttonDisplayAccount.TabIndex = 3;
@@ -887,7 +887,7 @@
             // 
             panel19.Controls.Add(textBoxUserAccount);
             panel19.Controls.Add(label10);
-            panel19.Location = new Point(402, 137);
+            panel19.Location = new Point(402, 133);
             panel19.Margin = new Padding(4);
             panel19.Name = "panel19";
             panel19.Size = new Size(366, 56);
@@ -920,7 +920,7 @@
             // 
             panel20.Controls.Add(textBoxNameAccount);
             panel20.Controls.Add(label11);
-            panel20.Location = new Point(402, 73);
+            panel20.Location = new Point(402, 69);
             panel20.Margin = new Padding(4);
             panel20.Name = "panel20";
             panel20.Size = new Size(366, 56);

@@ -85,14 +85,14 @@
             // thôngTinCaNhânToolStripMenuItem
             // 
             thôngTinCaNhânToolStripMenuItem.Name = "thôngTinCaNhânToolStripMenuItem";
-            thôngTinCaNhânToolStripMenuItem.Size = new Size(180, 22);
+            thôngTinCaNhânToolStripMenuItem.Size = new Size(170, 22);
             thôngTinCaNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             thôngTinCaNhânToolStripMenuItem.Click += thôngTinCaNhânToolStripMenuItem_Click;
             // 
             // đăngXuâtToolStripMenuItem
             // 
             đăngXuâtToolStripMenuItem.Name = "đăngXuâtToolStripMenuItem";
-            đăngXuâtToolStripMenuItem.Size = new Size(180, 22);
+            đăngXuâtToolStripMenuItem.Size = new Size(170, 22);
             đăngXuâtToolStripMenuItem.Text = "Đăng xuất";
             đăngXuâtToolStripMenuItem.Click += đăngXuâtToolStripMenuItem_Click;
             // 
@@ -228,11 +228,11 @@
             // 
             // flowLayoutPanelTable
             // 
+            flowLayoutPanelTable.AutoScroll = true;
             flowLayoutPanelTable.Location = new Point(4, 27);
             flowLayoutPanelTable.Name = "flowLayoutPanelTable";
             flowLayoutPanelTable.Size = new Size(511, 454);
             flowLayoutPanelTable.TabIndex = 4;
-            flowLayoutPanelTable.Paint += flowLayoutPanelTable_Paint;
             // 
             // TableManager
             // 
@@ -249,7 +249,6 @@
             Name = "TableManager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TableManager";
-            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             panel2.ResumeLayout(false);

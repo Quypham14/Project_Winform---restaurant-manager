@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyNhaHang.DAO;
+using QuanLyNhaHang.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,16 +17,31 @@ namespace QuanLyNhaHang
         public TableManager()
         {
             InitializeComponent();
+            LoadTable();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        #region Method
+        void LoadTable()
         {
+            List<Table> tableList = TableDAO.Instance.LoadTableList();
+            foreach (Table item in tableList)
+            {
+                Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
+                btn.Text = item.Name +Environment.NewLine +item.Status ;
+                switch(item.Status)
+                {
+                    case "Trống":
+                        btn.BackColor = Color.Aqua;
+                        break;
+                    default:
+                        btn.BackColor = Color.LightPink;
+                        break;
+                }
+                flowLayoutPanelTable.Controls.Add(btn);
 
+            }
         }
-        private void flowLayoutPanelTable_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        #endregion
+        #region Events
         private void đăngXuâtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -41,5 +58,6 @@ namespace QuanLyNhaHang
             Admin f= new Admin();
             f.ShowDialog();
         }
+        #endregion
     }
 }

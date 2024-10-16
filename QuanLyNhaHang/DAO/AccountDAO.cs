@@ -20,12 +20,9 @@ namespace QuanLyNhaHang.DAO
         private AccountDAO() { }
         public bool login(string userName, string passWord)
         {
-            string query = "SELECT * FROM dbo.Account WHERE UserName = N'"
-                           + userName.Replace("'", "''")
-                           + "' AND PassWord = N'"
-                           + passWord.Replace("'", "''") + "'";
+            string query = "USP_Login @userName , @passWord";
 
-            DataTable result =DataProvider.Instance.ExecuteQuery(query);
+            DataTable result =DataProvider.Instance.ExecuteQuery(query, new object[] {userName , passWord});
             return result.Rows.Count > 0;
         }
 
