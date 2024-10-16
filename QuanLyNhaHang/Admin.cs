@@ -22,8 +22,7 @@ namespace QuanLyNhaHang
         void LoadAccountList()
         {
            string query = "EXEC dbo.USP_GetAccountByUserName @userName";
-            DataProvider provider =new DataProvider();
-            dataGridViewAccount.DataSource = provider.ExecuteQuery(query, new object[] {"Pham Sy Quy"});
+           dataGridViewAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"Pham Sy Quy"});
         }
     }
 }
