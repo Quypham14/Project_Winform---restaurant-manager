@@ -70,5 +70,12 @@ VALUES (N'Staff', -- UserName -nvarchar(100)
 		N'66666666', -- PassWord -nvarchar(1000)
 		2 --Type -int
 )
-SELECT * FROM dbo.Account
-
+GO
+CREATE PROC USP_GetAccountByUserName
+@userName nvarchar(100)
+AS
+BEGIN
+	SELECT * FROM dbo.Account WHERE UserName=@userName
+END 
+GO
+EXEC dbo.USP_GetAccountByUserName @userName =N'staff' --varchar(100)

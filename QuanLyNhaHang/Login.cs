@@ -1,4 +1,6 @@
-﻿namespace QuanLyNhaHang
+﻿using QuanLyNhaHang.DAO;
+
+namespace QuanLyNhaHang
 {
     public partial class Login : Form
     {
@@ -8,10 +10,23 @@
         }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            TableManager f = new TableManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string userName = textBoxUserName.Text;
+            string passWord = textBoxPassWord.Text;
+            if (login(userName, passWord))
+            {
+                TableManager f = new TableManager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
+            }
+        }
+        bool login(string userName, string passWord)
+        {
+            return AccountDAO.Instance.login(userName, passWord);
         }
         private void buttonExit_Click(object sender, EventArgs e)
         {

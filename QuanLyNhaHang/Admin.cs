@@ -17,12 +17,6 @@ namespace QuanLyNhaHang
         public Admin()
         {
             InitializeComponent();
-            LoadAccountList();
-        }
-        void LoadAccountList()
-        {
-           string query = "EXEC dbo.USP_GetAccountByUserName @userName";
-           dataGridViewAccount.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"Pham Sy Quy"});
         }
     }
 }
