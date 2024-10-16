@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QuanLyNhaHang
-build_property.ProjectDir = C:\BTL_CSDL\QuanLyNhaHang\
+build_property.ProjectDir = D:\Project_Winform---restaurant-manager\QuanLyNhaHang\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

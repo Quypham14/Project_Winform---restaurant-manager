@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Microsoft.Data.SqlClient;
+using QuanLyNhaHang.DAO;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace QuanLyNhaHang
 {
     public partial class Admin : Form
@@ -15,11 +17,13 @@ namespace QuanLyNhaHang
         public Admin()
         {
             InitializeComponent();
+            LoadAccountList();
         }
-
-        private void buttonDeleteFood_Click(object sender, EventArgs e)
+        void LoadAccountList()
         {
-
+           string query = "EXEC dbo.USP_GetAccountByUserName @userName";
+            DataProvider provider =new DataProvider();
+            dataGridViewAccount.DataSource = provider.ExecuteQuery(query, new object[] {"Pham Sy Quy"});
         }
     }
 }

@@ -147,7 +147,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
             FormClosing += Login_FormClosing;
-            Load += Login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
