@@ -35,8 +35,13 @@
             đăngXuâtToolStripMenuItem = new ToolStripMenuItem();
             panel2 = new Panel();
             listViewBill = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
             panel3 = new Panel();
             panel4 = new Panel();
+            textBoxTotalPrice = new TextBox();
             numericUpDownSwitchTable = new NumericUpDown();
             buttonSwitchTable = new Button();
             numericUpDownDiscount = new NumericUpDown();
@@ -44,7 +49,7 @@
             buttonCheckout = new Button();
             panel5 = new Panel();
             numericUpDownFoodCount = new NumericUpDown();
-            buttonFood = new Button();
+            buttonAddFood = new Button();
             comboBoxFood = new ComboBox();
             comboBoxCategory = new ComboBox();
             flowLayoutPanelTable = new FlowLayoutPanel();
@@ -108,11 +113,32 @@
             // 
             // listViewBill
             // 
-            listViewBill.Location = new Point(3, 0);
+            listViewBill.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            listViewBill.GridLines = true;
+            listViewBill.Location = new Point(0, 3);
             listViewBill.Name = "listViewBill";
             listViewBill.Size = new Size(435, 324);
             listViewBill.TabIndex = 1;
             listViewBill.UseCompatibleStateImageBehavior = false;
+            listViewBill.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Tên món";
+            columnHeader1.Width = 220;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Số lượng";
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Đơn giá";
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Thành tiền";
+            columnHeader4.Width = 100;
             // 
             // panel3
             // 
@@ -123,6 +149,7 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(textBoxTotalPrice);
             panel4.Controls.Add(numericUpDownSwitchTable);
             panel4.Controls.Add(buttonSwitchTable);
             panel4.Controls.Add(numericUpDownDiscount);
@@ -132,6 +159,18 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(441, 73);
             panel4.TabIndex = 2;
+            // 
+            // textBoxTotalPrice
+            // 
+            textBoxTotalPrice.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            textBoxTotalPrice.ForeColor = Color.OrangeRed;
+            textBoxTotalPrice.Location = new Point(210, 24);
+            textBoxTotalPrice.Name = "textBoxTotalPrice";
+            textBoxTotalPrice.ReadOnly = true;
+            textBoxTotalPrice.Size = new Size(119, 24);
+            textBoxTotalPrice.TabIndex = 8;
+            textBoxTotalPrice.Text = "0";
+            textBoxTotalPrice.TextAlign = HorizontalAlignment.Right;
             // 
             // numericUpDownSwitchTable
             // 
@@ -153,7 +192,7 @@
             // 
             // numericUpDownDiscount
             // 
-            numericUpDownDiscount.Location = new Point(178, 39);
+            numericUpDownDiscount.Location = new Point(103, 39);
             numericUpDownDiscount.Name = "numericUpDownDiscount";
             numericUpDownDiscount.Size = new Size(86, 23);
             numericUpDownDiscount.TabIndex = 5;
@@ -162,7 +201,7 @@
             // buttonDiscount
             // 
             buttonDiscount.BackColor = Color.Orange;
-            buttonDiscount.Location = new Point(178, 4);
+            buttonDiscount.Location = new Point(103, 3);
             buttonDiscount.Name = "buttonDiscount";
             buttonDiscount.Size = new Size(86, 35);
             buttonDiscount.TabIndex = 4;
@@ -183,7 +222,7 @@
             // panel5
             // 
             panel5.Controls.Add(numericUpDownFoodCount);
-            panel5.Controls.Add(buttonFood);
+            panel5.Controls.Add(buttonAddFood);
             panel5.Controls.Add(comboBoxFood);
             panel5.Controls.Add(comboBoxCategory);
             panel5.Location = new Point(521, 27);
@@ -200,15 +239,16 @@
             numericUpDownFoodCount.TabIndex = 3;
             numericUpDownFoodCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // buttonFood
+            // buttonAddFood
             // 
-            buttonFood.BackColor = Color.IndianRed;
-            buttonFood.Location = new Point(229, 0);
-            buttonFood.Name = "buttonFood";
-            buttonFood.Size = new Size(75, 52);
-            buttonFood.TabIndex = 2;
-            buttonFood.Text = "Thêm món";
-            buttonFood.UseVisualStyleBackColor = false;
+            buttonAddFood.BackColor = Color.IndianRed;
+            buttonAddFood.Location = new Point(229, 0);
+            buttonAddFood.Name = "buttonAddFood";
+            buttonAddFood.Size = new Size(75, 52);
+            buttonAddFood.TabIndex = 2;
+            buttonAddFood.Text = "Thêm món";
+            buttonAddFood.UseVisualStyleBackColor = false;
+            buttonAddFood.Click += buttonAddFood_Click;
             // 
             // comboBoxFood
             // 
@@ -221,10 +261,11 @@
             // comboBoxCategory
             // 
             comboBoxCategory.FormattingEnabled = true;
-            comboBoxCategory.Location = new Point(3, 2);
+            comboBoxCategory.Location = new Point(2, 2);
             comboBoxCategory.Name = "comboBoxCategory";
             comboBoxCategory.Size = new Size(205, 23);
             comboBoxCategory.TabIndex = 0;
+            comboBoxCategory.SelectedIndexChanged += boxCategory_Click;
             // 
             // flowLayoutPanelTable
             // 
@@ -253,6 +294,7 @@
             menuStrip1.PerformLayout();
             panel2.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSwitchTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDiscount).EndInit();
             panel5.ResumeLayout(false);
@@ -274,7 +316,7 @@
         private Panel panel5;
         private ComboBox comboBoxCategory;
         private NumericUpDown numericUpDownFoodCount;
-        private Button buttonFood;
+        private Button buttonAddFood;
         private ComboBox comboBoxFood;
         private Button buttonCheckout;
         private FlowLayoutPanel flowLayoutPanelTable;
@@ -283,5 +325,10 @@
         private ToolStripMenuItem admInToolStripMenuItem2;
         private Button buttonSwitchTable;
         private NumericUpDown numericUpDownSwitchTable;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private TextBox textBoxTotalPrice;
     }
 }

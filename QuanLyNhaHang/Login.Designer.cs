@@ -60,6 +60,7 @@
             textBoxUserName.Name = "textBoxUserName";
             textBoxUserName.Size = new Size(205, 26);
             textBoxUserName.TabIndex = 1;
+            textBoxUserName.Text = "Quypham14";
             // 
             // labelUsername
             // 
@@ -91,6 +92,7 @@
             textBoxPassWord.Name = "textBoxPassWord";
             textBoxPassWord.Size = new Size(205, 26);
             textBoxPassWord.TabIndex = 1;
+            textBoxPassWord.Text = "14022003";
             textBoxPassWord.UseSystemPasswordChar = true;
             textBoxPassWord.TextChanged += textBoxPassWord_TextChanged;
             // 
