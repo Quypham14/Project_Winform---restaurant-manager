@@ -218,6 +218,7 @@
             buttonCheckout.TabIndex = 3;
             buttonCheckout.Text = "Thanh toán";
             buttonCheckout.UseVisualStyleBackColor = false;
+            buttonCheckout.Click += buttonCheckout_Click;
             // 
             // panel5
             // 

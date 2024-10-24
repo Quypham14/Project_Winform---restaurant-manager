@@ -20,20 +20,27 @@ namespace QuanLyNhaHang.DAO
         // Thất bại: -1
         public int GetUncheckBillIDByTableID(int id)
         {
-            // Chỉ lấy hóa đơn chưa thanh toán của bàn có ID = id
-            string query = "SELECT * FROM dbo.Bill WHERE idTable = " + id + " AND status = 0";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Bill WHERE idTable = " + id + " AND status = 0");
 
             if (data.Rows.Count > 0)
             {
                 Bill bill = new Bill(data.Rows[0]);
-                Console.WriteLine("Unpaid Bill ID for table " + id + ": " + bill.ID);
-                return bill.ID; // Trả về ID của hóa đơn chưa thanh toán
+                return bill.ID;
             }
 
-            Console.WriteLine("No unpaid bill found for table " + id);
-            return -1; // Không có hóa đơn chưa thanh toán
+            return -1;
         }
+        public void Checkout(int id)
+        {
+            string query = "UPDATE dbo.Bill SET status = 1 WHERE id = @id";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+
+            // Xóa các BillInfo liên quan sau khi thanh toán
+            string deleteQuery = "DELETE FROM dbo.BillInfo WHERE idBill = @id";
+            DataProvider.Instance.ExecuteNonQuery(deleteQuery, new object[] { id });
+        }
+
+
         public void InsertBill(int id)
         {
             DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @idTable", new object[] { id });

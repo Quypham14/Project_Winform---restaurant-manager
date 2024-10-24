@@ -2,7 +2,7 @@
 GO
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'QUANLYNHAHANG')
 BEGIN
-    ALTER DATABASE QUANLYNHAHANG SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+   ALTER DATABASE QUANLYNHAHANG SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
     DROP DATABASE QUANLYNHAHANG;
 END
 GO
@@ -99,7 +99,7 @@ GO
 
 -- Thêm 30 bàn vào TableFood
 DECLARE @i INT = 1;
-WHILE @i <= 30
+WHILE @i <= 20
 BEGIN
     INSERT INTO dbo.TableFood (nametable) VALUES (N'BÀN ' + CAST(@i AS NVARCHAR(100)));
     SET @i = @i + 1;
@@ -147,7 +147,7 @@ GO
 
 -- Thêm hóa đơn mẫu
 INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status)
-VALUES (GETDATE(), NULL, 1, 0), (GETDATE(), NULL, 2, 0), (GETDATE(),NULL, 3, 1);
+VALUES (GETDATE(), NULL, 1, 0), (GETDATE(), NULL, 2, 0), (GETDATE(),GETDATE(), 3, 1);
 GO
 
 -- Thêm thông tin hóa đơn mẫu
@@ -194,7 +194,7 @@ VALUES
 	 )
 END
 GO
-ALTER PROC USP_InsertBillInfo
+ALTER PROC USP_InsertBillInfo 
 @idBill INT, @idFood INT, @count INT
 AS
 BEGIN
@@ -232,5 +232,43 @@ BEGIN
     END
 END;
 GO
+DELETE dbo.BillInfo
 
+DELETE dbo.Bill
+GO
+CREATE TRIGGER UTG_UpdateBillInfo
+ON dbo.BillInfo FOR INSERT, UPDATE
+AS
+BEGIN
+	DECLARE @idBill INT
+	
+	SELECT @idBill = idBill FROM Inserted
+	
+	DECLARE @idTable INT
+	
+	SELECT @idTable = idTable FROM dbo.Bill WHERE id = @idBill AND status = 0
+	
+	UPDATE dbo.TableFood SET status = N'Có người' WHERE id = @idTable
+END
+GO
 
+CREATE TRIGGER UTG_UpdateBill
+ON dbo.Bill FOR UPDATE
+AS
+BEGIN
+	DECLARE @idBill INT
+	
+	SELECT @idBill = id FROM Inserted	
+	
+	DECLARE @idTable INT
+	
+	SELECT @idTable = idTable FROM dbo.Bill WHERE id = @idBill
+	
+	DECLARE @count int = 0
+	
+	SELECT @count = COUNT(*) FROM dbo.Bill WHERE idTable = @idTable AND status = 0
+	
+	IF (@count = 0)
+		UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable
+END
+GO
