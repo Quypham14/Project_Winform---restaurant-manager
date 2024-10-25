@@ -17,6 +17,27 @@ namespace QuanLyNhaHang
         public Admin()
         {
             InitializeComponent();
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dateTimePickerFromDate.Value, dateTimePickerToDate.Value);
         }
+        #region methods
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dateTimePickerFromDate.Value = new DateTime(today.Year, today.Month, 1);
+            dateTimePickerToDate.Value = dateTimePickerToDate.Value.AddMonths(1).AddDays(-1);
+        }
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+           dataGridViewBill.DataSource= BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
+
+        }
+        #endregion
+        #region events
+        private void buttonViewBill_Click(object sender, EventArgs e)
+        {
+            LoadListBillByDate(dateTimePickerFromDate.Value, dateTimePickerToDate.Value);
+        }
+        #endregion
     }
 }

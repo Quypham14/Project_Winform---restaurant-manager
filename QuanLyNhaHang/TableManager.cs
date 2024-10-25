@@ -148,7 +148,7 @@ namespace QuanLyNhaHang
                 if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho {0}\nTổng tiền - (Tổng tiền / 100) x Giảm giá\n=> {1} - ({1} / 100) x {2} = {3}", table.Name, totalPrice, discount, finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
                     // Thanh toán hóa đơn
-                    BillDAO.Instance.Checkout(idBill, discount);
+                    BillDAO.Instance.Checkout(idBill, discount,(float) finalTotalPrice);
 
                     // Xóa các mục trong listViewBill
                     listViewBill.Items.Clear();

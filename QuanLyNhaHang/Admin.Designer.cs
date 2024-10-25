@@ -32,7 +32,7 @@
             tabPageBill = new TabPage();
             panel2 = new Panel();
             buttonViewBill = new Button();
-            dateTimePicker2 = new DateTimePicker();
+            dateTimePickerToDate = new DateTimePicker();
             dateTimePickerFromDate = new DateTimePicker();
             panel1 = new Panel();
             dataGridViewBill = new DataGridView();
@@ -169,7 +169,7 @@
             // panel2
             // 
             panel2.Controls.Add(buttonViewBill);
-            panel2.Controls.Add(dateTimePicker2);
+            panel2.Controls.Add(dateTimePickerToDate);
             panel2.Controls.Add(dateTimePickerFromDate);
             panel2.Location = new Point(6, 2);
             panel2.Name = "panel2";
@@ -184,13 +184,14 @@
             buttonViewBill.TabIndex = 2;
             buttonViewBill.Text = "Thống kê";
             buttonViewBill.UseVisualStyleBackColor = true;
+            buttonViewBill.Click += buttonViewBill_Click;
             // 
-            // dateTimePicker2
+            // dateTimePickerToDate
             // 
-            dateTimePicker2.Location = new Point(565, 4);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 1;
+            dateTimePickerToDate.Location = new Point(565, 4);
+            dateTimePickerToDate.Name = "dateTimePickerToDate";
+            dateTimePickerToDate.Size = new Size(200, 23);
+            dateTimePickerToDate.TabIndex = 1;
             // 
             // dateTimePickerFromDate
             // 
@@ -209,6 +210,7 @@
             // 
             // dataGridViewBill
             // 
+            dataGridViewBill.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewBill.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewBill.Location = new Point(3, 3);
             dataGridViewBill.Name = "dataGridViewBill";
@@ -1019,7 +1021,7 @@
         private Panel panel1;
         private DataGridView dataGridViewBill;
         private Button buttonViewBill;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePickerToDate;
         private Panel panel3;
         private Panel v;
         private Panel panel6;

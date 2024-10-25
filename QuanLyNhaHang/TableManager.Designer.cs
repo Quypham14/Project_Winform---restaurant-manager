@@ -172,13 +172,13 @@
             // 
             textBoxTotalPrice.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             textBoxTotalPrice.ForeColor = Color.OrangeRed;
-            textBoxTotalPrice.Location = new Point(210, 24);
+            textBoxTotalPrice.Location = new Point(210, 38);
             textBoxTotalPrice.Name = "textBoxTotalPrice";
             textBoxTotalPrice.ReadOnly = true;
             textBoxTotalPrice.Size = new Size(119, 24);
             textBoxTotalPrice.TabIndex = 8;
             textBoxTotalPrice.Text = "0";
-            textBoxTotalPrice.TextAlign = HorizontalAlignment.Right;
+            textBoxTotalPrice.TextAlign = HorizontalAlignment.Center;
             // 
             // buttonSwitchTable
             // 
@@ -332,5 +332,6 @@
         private ColumnHeader columnHeader4;
         private TextBox textBoxTotalPrice;
         private ComboBox comboBoxSwitchTable;
+
     }
 }

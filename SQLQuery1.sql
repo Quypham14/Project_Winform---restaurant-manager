@@ -52,6 +52,7 @@ CREATE TABLE Bill (
     DateCheckOut DATETIME,
     idTable INT NOT NULL,
     status INT NOT NULL DEFAULT 0, -- 1: đã thanh toán, 0: chưa thanh toán
+	discount INT NOT NULL DEFAULT 0, -- Mặc định là 0
     FOREIGN KEY (idTable) REFERENCES dbo.TableFood(id)
 );
 GO
@@ -144,19 +145,6 @@ VALUES
 (N'Kem', 5, 20000),
 (N'Hoa quả', 5, 30000);
 GO
-
--- Thêm hóa đơn mẫu
-INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status)
-VALUES (GETDATE(), NULL, 1, 0), (GETDATE(), NULL, 2, 0), (GETDATE(),GETDATE(), 3, 1);
-GO
-
--- Thêm thông tin hóa đơn mẫu
-INSERT INTO dbo.Billinfo (idBill, idFood, count)
-VALUES 
-(1, 1, 2), (1, 3, 4), (1, 5, 1),
-(2, 6, 2)
-GO
-
 -- Truy vấn dữ liệu
 SELECT * FROM dbo.Bill;
 SELECT * FROM dbo.Billinfo;
@@ -172,12 +160,14 @@ BEGIN
 	DateCheckIn,
 	DateCheckOut,
 	idTable,
-	status
+	status,
+	discount
 	)
 	VALUES (GETDATE(), --DateCheckIn -date
 			NULL , --DateCheckOut -date
 			@idTable, --idTable -int
-			0 --status - int
+			0, --status - int
+			0
 			)
 END
 GO
@@ -232,43 +222,124 @@ BEGIN
     END
 END;
 GO
-DELETE dbo.BillInfo
-
-DELETE dbo.Bill
-GO
 CREATE TRIGGER UTG_UpdateBillInfo
-ON dbo.BillInfo FOR INSERT, UPDATE
+ON dbo.BillInfo
+FOR INSERT, UPDATE
 AS
 BEGIN
-	DECLARE @idBill INT
-	
-	SELECT @idBill = idBill FROM Inserted
-	
-	DECLARE @idTable INT
-	
-	SELECT @idTable = idTable FROM dbo.Bill WHERE id = @idBill AND status = 0
-	
-	UPDATE dbo.TableFood SET status = N'Có người' WHERE id = @idTable
-END
+    DECLARE @idBill INT;
+    DECLARE @idTable INT;
+    DECLARE @count INT;
+
+    -- Lấy idBill từ bản ghi vừa được chèn/cập nhật
+    SELECT @idBill = idBill FROM Inserted;
+
+    -- Lấy idTable từ bảng Bill có trạng thái chưa thanh toán (status = 0)
+    SELECT @idTable = idTable 
+    FROM dbo.Bill 
+    WHERE id = @idBill AND status = 0;
+
+    -- Đếm số lượng món trong hóa đơn
+    SELECT @count = COUNT(*) 
+    FROM dbo.BillInfo 
+    WHERE idBill = @idBill;
+
+    -- Cập nhật trạng thái bàn dựa vào số món ăn
+    IF (@count > 0)
+        UPDATE dbo.TableFood 
+        SET status = N'Có người' 
+        WHERE id = @idTable;
+    ELSE
+        UPDATE dbo.TableFood 
+        SET status = N'Trống' 
+        WHERE id = @idTable;
+END;
+GO
+CREATE TRIGGER UTG_UpdateBill
+ON dbo.Bill
+FOR UPDATE
+AS
+BEGIN
+    DECLARE @idBill INT;
+    DECLARE @idTable INT;
+    DECLARE @count INT = 0;
+
+    -- Lấy idBill từ bản ghi được cập nhật
+    SELECT @idBill = id FROM Inserted;
+
+    -- Lấy idTable từ bảng Bill dựa trên idBill
+    SELECT @idTable = idTable 
+    FROM dbo.Bill 
+    WHERE id = @idBill;
+
+    -- Đếm số hóa đơn chưa thanh toán của bàn này (status = 0)
+    SELECT @count = COUNT(*) 
+    FROM dbo.Bill 
+    WHERE idTable = @idTable AND status = 0;
+
+    -- Nếu không còn hóa đơn chưa thanh toán, cập nhật bàn thành "Trống"
+    IF (@count = 0)
+        UPDATE dbo.TableFood 
+        SET status = N'Trống' 
+        WHERE id = @idTable;
+END;
 GO
 
-CREATE TRIGGER UTG_UpdateBill
-ON dbo.Bill FOR UPDATE
+CREATE PROC USP_SwitchTabel
+@idTable1 INT, @idTable2 INT
 AS
 BEGIN
-	DECLARE @idBill INT
-	
-	SELECT @idBill = id FROM Inserted	
-	
-	DECLARE @idTable INT
-	
-	SELECT @idTable = idTable FROM dbo.Bill WHERE id = @idBill
-	
-	DECLARE @count int = 0
-	
-	SELECT @count = COUNT(*) FROM dbo.Bill WHERE idTable = @idTable AND status = 0
-	
-	IF (@count = 0)
-		UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable
-END
+    DECLARE @idFirstBill INT, @idSecondBill INT;
+    DECLARE @isFirstTableEmpty BIT = 1, @isSecondTableEmpty BIT = 1;
+
+    -- Lấy hóa đơn hiện tại của 2 bàn (nếu có)
+    SELECT @idFirstBill = id FROM dbo.Bill WHERE idTable = @idTable1 AND status = 0;
+    SELECT @idSecondBill = id FROM dbo.Bill WHERE idTable = @idTable2 AND status = 0;
+
+    -- Nếu bàn 1 không có hóa đơn, tạo mới
+    IF @idFirstBill IS NULL
+    BEGIN
+        INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status)
+        VALUES (GETDATE(), NULL, @idTable1, 0);
+
+        SELECT @idFirstBill = MAX(id) FROM dbo.Bill WHERE idTable = @idTable1 AND status = 0;
+    END
+
+    -- Nếu bàn 2 không có hóa đơn, tạo mới
+    IF @idSecondBill IS NULL
+    BEGIN
+        INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status)
+        VALUES (GETDATE(), NULL, @idTable2, 0);
+
+        SELECT @idSecondBill = MAX(id) FROM dbo.Bill WHERE idTable = @idTable2 AND status = 0;
+        SET @isSecondTableEmpty = 1;
+    END
+
+    -- Chuyển các món từ hóa đơn này sang hóa đơn kia
+    SELECT id INTO #TempBillInfo FROM dbo.BillInfo WHERE idBill = @idSecondBill;
+
+    UPDATE dbo.BillInfo SET idBill = @idSecondBill WHERE idBill = @idFirstBill;
+    UPDATE dbo.BillInfo SET idBill = @idFirstBill WHERE id IN (SELECT * FROM #TempBillInfo);
+
+    DROP TABLE #TempBillInfo;
+
+    -- Cập nhật trạng thái bàn
+    IF NOT EXISTS (SELECT 1 FROM dbo.BillInfo WHERE idBill = @idSecondBill)
+        UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable2;
+
+    IF NOT EXISTS (SELECT 1 FROM dbo.BillInfo WHERE idBill = @idFirstBill)
+        UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable1;
+END;
 GO
+alter table dbo.Bill add totalPrice float
+go
+create proc USP_GetListBillByDate
+@checkIn date, @checkOut date
+AS
+BEGIN
+SELECT t.nametable, b.totalPrice, DateCheckIn, DateCheckOut, discount
+FROM dbo.Bill as b, dbo.TableFood as t
+where DateCheckIn >=@checkIn and DateCheckOut <=@checkOut and b.status=1
+and t.id=b.idTable
+end
+go

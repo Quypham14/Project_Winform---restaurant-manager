@@ -31,21 +31,26 @@ namespace QuanLyNhaHang.DAO
 
             return -1;
         }
-        public void Checkout(int id, int discount)
+        public void Checkout(int id, int discount, float totalPrice)
         {
-            // Cập nhật trạng thái hóa đơn và thêm discount
-            string query = "UPDATE dbo.Bill SET status = 1, discount = @discount WHERE id = @id";
+            // Cập nhật trạng thái hóa đơn và thêm discount cùng tổng giá
+            string query = "UPDATE dbo.Bill SET dateCheckOut = GETDATE(), status = 1, discount = @discount, totalPrice = @totalPrice WHERE id = @id";
 
-            // Truyền đúng cả 2 tham số: id và discount
-            DataProvider.Instance.ExecuteNonQuery(query, new object[] { discount, id });
+            // Truyền đúng cả 3 tham số: discount, totalPrice và id
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { discount, totalPrice, id });
 
             // Xóa các BillInfo liên quan sau khi thanh toán
             string deleteQuery = "DELETE FROM dbo.BillInfo WHERE idBill = @id";
             DataProvider.Instance.ExecuteNonQuery(deleteQuery, new object[] { id });
         }
+
         public void InsertBill(int id)
         {
             DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @idTable", new object[] { id });
+        }
+        public DataTable GetBillListByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
         }
         public int GetMaxIDBill()
         {

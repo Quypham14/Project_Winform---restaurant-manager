@@ -45,26 +45,37 @@ namespace QuanLyNhaHang.DAO
             }
             return data;
         }
-        public int ExecuteNonQuery(string query, object[] parameter = null)
+        public int ExecuteNonQuery(string query, object[] parameters = null)
         {
             int data = 0;
 
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-
-                if (parameter != null)
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    string[] listParams = query.Split(' ').Where(p => p.Contains('@')).ToArray();
-                    for (int i = 0; i < listParams.Length; i++)
+                    if (parameters != null)
                     {
-                        command.Parameters.AddWithValue(listParams[i], parameter[i]);
-                    }
-                }
+                        // Lấy tất cả các tham số từ truy vấn
+                        string[] listParams = query.Split(new[] { ' ', ',', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
+                                                    .Where(p => p.StartsWith("@")).ToArray();
 
-                data = command.ExecuteNonQuery(); // Số dòng bị ảnh hưởng
-                connection.Close();
+                        // Kiểm tra xem số lượng tham số có khớp không
+                        if (listParams.Length != parameters.Length)
+                        {
+                            throw new ArgumentException("Số lượng tham số không khớp với truy vấn.");
+                        }
+
+                        for (int i = 0; i < listParams.Length; i++)
+                        {
+                            // Thêm tham số vào SqlCommand
+                            command.Parameters.AddWithValue(listParams[i], parameters[i]);
+                        }
+                    }
+
+                    // Thực thi truy vấn
+                    data = command.ExecuteNonQuery(); // Số dòng bị ảnh hưởng
+                }
             }
 
             return data;
