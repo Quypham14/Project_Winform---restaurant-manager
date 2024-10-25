@@ -29,6 +29,10 @@ namespace QuanLyNhaHang.DAO
         public static int TableWidth = 90;
         public static int TableHeight = 90;
         // Constructor private để đảm bảo chỉ có một instance
+        public void SwitchTable(int id1, int id2)
+        {
+            DataProvider.Instance.ExecuteQuery("USP_SwitchTabel @idTable1 , @idTabel2", new object[] { id1, id2 });
+        }
         private TableDAO() { }
 
         // Phương thức LoadTableList không phải là static

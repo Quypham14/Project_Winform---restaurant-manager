@@ -4,10 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuanLyNhaHang.DTO;
 
 namespace QuanLyNhaHang.DAO
 {
-     public class BillDAO
+    public class BillDAO
     {
         private static BillDAO instance;
         public static BillDAO Instance
@@ -30,17 +31,18 @@ namespace QuanLyNhaHang.DAO
 
             return -1;
         }
-        public void Checkout(int id)
+        public void Checkout(int id, int discount)
         {
-            string query = "UPDATE dbo.Bill SET status = 1 WHERE id = @id";
-            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+            // Cập nhật trạng thái hóa đơn và thêm discount
+            string query = "UPDATE dbo.Bill SET status = 1, discount = @discount WHERE id = @id";
+
+            // Truyền đúng cả 2 tham số: id và discount
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { discount, id });
 
             // Xóa các BillInfo liên quan sau khi thanh toán
             string deleteQuery = "DELETE FROM dbo.BillInfo WHERE idBill = @id";
             DataProvider.Instance.ExecuteNonQuery(deleteQuery, new object[] { id });
         }
-
-
         public void InsertBill(int id)
         {
             DataProvider.Instance.ExecuteNonQuery("exec USP_InsertBill @idTable", new object[] { id });

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableManager));
             menuStrip1 = new MenuStrip();
             admInToolStripMenuItem2 = new ToolStripMenuItem();
             thôngTinTaiKhoanToolStripMenuItem = new ToolStripMenuItem();
@@ -41,8 +42,8 @@
             columnHeader4 = new ColumnHeader();
             panel3 = new Panel();
             panel4 = new Panel();
+            comboBoxSwitchTable = new ComboBox();
             textBoxTotalPrice = new TextBox();
-            numericUpDownSwitchTable = new NumericUpDown();
             buttonSwitchTable = new Button();
             numericUpDownDiscount = new NumericUpDown();
             buttonDiscount = new Button();
@@ -56,7 +57,6 @@
             menuStrip1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownSwitchTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDiscount).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownFoodCount).BeginInit();
@@ -149,8 +149,8 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(comboBoxSwitchTable);
             panel4.Controls.Add(textBoxTotalPrice);
-            panel4.Controls.Add(numericUpDownSwitchTable);
             panel4.Controls.Add(buttonSwitchTable);
             panel4.Controls.Add(numericUpDownDiscount);
             panel4.Controls.Add(buttonDiscount);
@@ -159,6 +159,14 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(441, 73);
             panel4.TabIndex = 2;
+            // 
+            // comboBoxSwitchTable
+            // 
+            comboBoxSwitchTable.FormattingEnabled = true;
+            comboBoxSwitchTable.Location = new Point(2, 38);
+            comboBoxSwitchTable.Name = "comboBoxSwitchTable";
+            comboBoxSwitchTable.Size = new Size(83, 23);
+            comboBoxSwitchTable.TabIndex = 9;
             // 
             // textBoxTotalPrice
             // 
@@ -172,14 +180,6 @@
             textBoxTotalPrice.Text = "0";
             textBoxTotalPrice.TextAlign = HorizontalAlignment.Right;
             // 
-            // numericUpDownSwitchTable
-            // 
-            numericUpDownSwitchTable.Location = new Point(3, 39);
-            numericUpDownSwitchTable.Name = "numericUpDownSwitchTable";
-            numericUpDownSwitchTable.Size = new Size(83, 23);
-            numericUpDownSwitchTable.TabIndex = 7;
-            numericUpDownSwitchTable.TextAlign = HorizontalAlignment.Center;
-            // 
             // buttonSwitchTable
             // 
             buttonSwitchTable.BackColor = Color.DeepSkyBlue;
@@ -189,10 +189,11 @@
             buttonSwitchTable.TabIndex = 6;
             buttonSwitchTable.Text = "Chuyển bàn";
             buttonSwitchTable.UseVisualStyleBackColor = false;
+            buttonSwitchTable.Click += buttonSwitchTable_Click;
             // 
             // numericUpDownDiscount
             // 
-            numericUpDownDiscount.Location = new Point(103, 39);
+            numericUpDownDiscount.Location = new Point(103, 38);
             numericUpDownDiscount.Name = "numericUpDownDiscount";
             numericUpDownDiscount.Size = new Size(86, 23);
             numericUpDownDiscount.TabIndex = 5;
@@ -286,17 +287,17 @@
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 2, 3, 2);
             Name = "TableManager";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TableManager";
+            Text = "Quản lý nhà hàng PTIT";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             panel2.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownSwitchTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDiscount).EndInit();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericUpDownFoodCount).EndInit();
@@ -325,11 +326,11 @@
         private NumericUpDown numericUpDownDiscount;
         private ToolStripMenuItem admInToolStripMenuItem2;
         private Button buttonSwitchTable;
-        private NumericUpDown numericUpDownSwitchTable;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private TextBox textBoxTotalPrice;
+        private ComboBox comboBoxSwitchTable;
     }
 }
