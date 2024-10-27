@@ -412,6 +412,7 @@
             buttonShowFood.TabIndex = 3;
             buttonShowFood.Text = "Xem";
             buttonShowFood.UseVisualStyleBackColor = false;
+            buttonShowFood.Click += buttonShowFood_Click;
             // 
             // buttonEditFood
             // 

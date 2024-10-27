@@ -17,10 +17,19 @@ namespace QuanLyNhaHang
         public Admin()
         {
             InitializeComponent();
-            LoadDateTimePickerBill();
-            LoadListBillByDate(dateTimePickerFromDate.Value, dateTimePickerToDate.Value);
+            Load();
         }
         #region methods
+        void Load()
+        {
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dateTimePickerFromDate.Value, dateTimePickerToDate.Value);
+            LoadListFood();
+        }
+        void LoadListFood()
+        {
+            dataGridViewFood.DataSource = FoodDAO.Instance.GetListFood();
+        }
         void LoadDateTimePickerBill()
         {
             DateTime today = DateTime.Now;
@@ -29,8 +38,12 @@ namespace QuanLyNhaHang
         }
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
         {
-           dataGridViewBill.DataSource= BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
+            dataGridViewBill.DataSource = BillDAO.Instance.GetBillListByDate(checkIn, checkOut);
 
+        }
+        private void buttonShowFood_Click(object sender, EventArgs e)
+        {
+            LoadListFood();
         }
         #endregion
         #region events
