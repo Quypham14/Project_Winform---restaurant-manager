@@ -285,6 +285,7 @@
             numericFoodPrice.Size = new Size(193, 23);
             numericFoodPrice.TabIndex = 2;
             numericFoodPrice.TextAlign = HorizontalAlignment.Center;
+            numericFoodPrice.UseWaitCursor = true;
             // 
             // label3
             // 
@@ -380,6 +381,7 @@
             textBoxFoodID.Size = new Size(193, 26);
             textBoxFoodID.TabIndex = 1;
             textBoxFoodID.Text = " ";
+            textBoxFoodID.TextChanged += textBoxFoodID_TextChanged;
             // 
             // labelUsername
             // 
