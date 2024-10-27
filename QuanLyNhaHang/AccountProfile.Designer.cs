@@ -256,6 +256,7 @@
             buttonUpdate.TabIndex = 6;
             buttonUpdate.Text = "Cập nhật";
             buttonUpdate.UseVisualStyleBackColor = false;
+            buttonUpdate.Click += buttonUpdate_Click;
             // 
             // buttonExit
             // 

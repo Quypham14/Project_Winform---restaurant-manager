@@ -1,6 +1,6 @@
 ﻿namespace QuanLyNhaHang
 {
-    partial class Login
+    partial class fLogin
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             panel1 = new Panel();
             textBoxUserName = new TextBox();
             labelUsername = new Label();
@@ -129,7 +129,7 @@
             buttonExit.UseVisualStyleBackColor = false;
             buttonExit.Click += buttonExit_Click;
             // 
-            // Login
+            // fLogin
             // 
             AcceptButton = buttonLogin;
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -145,7 +145,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
-            Name = "Login";
+            Name = "fLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
             FormClosing += Login_FormClosing;

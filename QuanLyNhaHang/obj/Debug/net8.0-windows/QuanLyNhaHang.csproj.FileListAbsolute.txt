@@ -20,7 +20,6 @@ D:\Project_Winform---restaurant-manager\QuanLyNhaHang\bin\Debug\net8.0-windows\Q
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\bin\Debug\net8.0-windows\QuanLyNhaHang.runtimeconfig.json
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\bin\Debug\net8.0-windows\QuanLyNhaHang.dll
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\bin\Debug\net8.0-windows\QuanLyNhaHang.pdb
-D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.Login.resources
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.TableManager.resources
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.csproj.GenerateResource.cache
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.GeneratedMSBuildEditorConfig.editorconfig
@@ -76,3 +75,4 @@ D:\Project_Winform---restaurant-manager\QuanLyNhaHang\bin\Debug\net8.0-windows\r
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
 D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNh.C9D63E52.Up2Date
+D:\Project_Winform---restaurant-manager\QuanLyNhaHang\obj\Debug\net8.0-windows\QuanLyNhaHang.fLogin.resources

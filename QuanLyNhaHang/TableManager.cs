@@ -11,19 +11,32 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QuanLyNhaHang.AccountProfile;
 
 namespace QuanLyNhaHang
 {
     public partial class TableManager : Form
     {
-        public TableManager()
+        private Account loginAccount;
+        public Account LoginAccount
+        {
+            get { return loginAccount; }
+            set { loginAccount = value; ChangeAccount(loginAccount.Type); }
+        }
+        public TableManager(Account acc)
         {
             InitializeComponent();
+            this.loginAccount = acc;
             LoadTable();
             LoadCategory();
             LoadComboboxTable(comboBoxSwitchTable);
         }
         #region Method
+        public void ChangeAccount(int type)
+        {
+            adminToolStripMenuItem.Enabled = type == 1;
+            thôngTinTaiKhoanToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
+        }
         void LoadCategory()
         {
             List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
@@ -109,14 +122,13 @@ namespace QuanLyNhaHang
 
         private void thôngTinCaNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AccountProfile f = new AccountProfile();
+            AccountProfile f = new AccountProfile(LoginAccount);
+            f.UpdateAccount += f_UpdateAccount;
             f.ShowDialog();
         }
-
-        private void admInToolStripMenuItem2_Click(object sender, EventArgs e)
+        void f_UpdateAccount(object sender, AccountEvent e)
         {
-            Admin f = new Admin();
-            f.ShowDialog();
+            thôngTinTaiKhoanToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.DisplayName + ")";
         }
         private void buttonAddFood_Click(object sender, EventArgs e)
         {
@@ -148,7 +160,7 @@ namespace QuanLyNhaHang
                 if (MessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho {0}\nTổng tiền - (Tổng tiền / 100) x Giảm giá\n=> {1} - ({1} / 100) x {2} = {3}", table.Name, totalPrice, discount, finalTotalPrice), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
                     // Thanh toán hóa đơn
-                    BillDAO.Instance.Checkout(idBill, discount,(float) finalTotalPrice);
+                    BillDAO.Instance.Checkout(idBill, discount, (float)finalTotalPrice);
 
                     // Xóa các mục trong listViewBill
                     listViewBill.Items.Clear();
@@ -178,6 +190,10 @@ namespace QuanLyNhaHang
         }
         #endregion
 
-
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Admin f = new Admin();
+            f.ShowDialog();
+        }
     }
 }

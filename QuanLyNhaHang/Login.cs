@@ -1,10 +1,11 @@
 ﻿using QuanLyNhaHang.DAO;
+using QuanLyNhaHang.DTO;
 
 namespace QuanLyNhaHang
 {
-    public partial class Login : Form
+    public partial class fLogin : Form
     {
-        public Login()
+        public fLogin()
         {
             InitializeComponent();
         }
@@ -14,7 +15,9 @@ namespace QuanLyNhaHang
             string passWord = textBoxPassWord.Text;
             if (login(userName, passWord))
             {
-                TableManager f = new TableManager();
+                Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
+                TableManager f = new TableManager(loginAccount); // Chuyển tài khoản đã đăng nhập
+                f.ChangeAccount(loginAccount.Type); // Gọi hàm để cập nhật giao diện
                 this.Hide();
                 f.ShowDialog();
                 this.Show();

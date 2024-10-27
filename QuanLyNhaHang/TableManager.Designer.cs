@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableManager));
             menuStrip1 = new MenuStrip();
-            admInToolStripMenuItem2 = new ToolStripMenuItem();
+            adminToolStripMenuItem = new ToolStripMenuItem();
             thôngTinTaiKhoanToolStripMenuItem = new ToolStripMenuItem();
             thôngTinCaNhânToolStripMenuItem = new ToolStripMenuItem();
             đăngXuâtToolStripMenuItem = new ToolStripMenuItem();
@@ -65,7 +65,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { admInToolStripMenuItem2, thôngTinTaiKhoanToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { adminToolStripMenuItem, thôngTinTaiKhoanToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
@@ -73,12 +73,12 @@
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // admInToolStripMenuItem2
+            // adminToolStripMenuItem
             // 
-            admInToolStripMenuItem2.Name = "admInToolStripMenuItem2";
-            admInToolStripMenuItem2.Size = new Size(55, 20);
-            admInToolStripMenuItem2.Text = "Admin";
-            admInToolStripMenuItem2.Click += admInToolStripMenuItem2_Click;
+            adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            adminToolStripMenuItem.Size = new Size(55, 20);
+            adminToolStripMenuItem.Text = "Admin";
+            adminToolStripMenuItem.Click += adminToolStripMenuItem_Click;
             // 
             // thôngTinTaiKhoanToolStripMenuItem
             // 
@@ -324,7 +324,7 @@
         private FlowLayoutPanel flowLayoutPanelTable;
         private Button buttonDiscount;
         private NumericUpDown numericUpDownDiscount;
-        private ToolStripMenuItem admInToolStripMenuItem2;
+        private ToolStripMenuItem adminToolStripMenuItem;
         private Button buttonSwitchTable;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;

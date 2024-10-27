@@ -24,7 +24,7 @@ CREATE TABLE Account (
     UserName NVARCHAR(100) NOT NULL PRIMARY KEY,
     DisplayName NVARCHAR(100) NOT NULL DEFAULT N'Quypham',
     PassWord NVARCHAR(1000) NOT NULL DEFAULT N'password',
-    Type INT NOT NULL DEFAULT 0 -- 1: ADMIN, 0: nhân viên
+    Type INT NOT NULL DEFAULT 0 CHECK (Type IN (0, 1)) -- Chỉ cho phép 0 hoặc 1
 );
 GO
 
@@ -53,6 +53,7 @@ CREATE TABLE Bill (
     idTable INT NOT NULL,
     status INT NOT NULL DEFAULT 0, -- 1: đã thanh toán, 0: chưa thanh toán
 	discount INT NOT NULL DEFAULT 0, -- Mặc định là 0
+	totalPrice FLOAT
     FOREIGN KEY (idTable) REFERENCES dbo.TableFood(id)
 );
 GO
@@ -73,7 +74,7 @@ INSERT INTO dbo.Account (UserName, DisplayName, PassWord, Type)
 VALUES (N'Quypham14', N'Pham Sy Quy', N'14022003', 1);
 GO
 INSERT INTO dbo.Account (UserName, DisplayName, PassWord, Type)
-VALUES (N'staff', N'Staff', N'66666666', 2);
+VALUES (N'staff', N'Staff', N'66666666', 0);
 GO
 
 -- Tạo thủ tục lấy tài khoản theo UserName
@@ -161,12 +162,14 @@ BEGIN
 	DateCheckOut,
 	idTable,
 	status,
-	discount
+	discount,
+	totalPrice
 	)
 	VALUES (GETDATE(), --DateCheckIn -date
 			NULL , --DateCheckOut -date
 			@idTable, --idTable -int
 			0, --status - int
+			0,
 			0
 			)
 END
@@ -331,15 +334,25 @@ BEGIN
         UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable1;
 END;
 GO
-alter table dbo.Bill add totalPrice float
-go
-create proc USP_GetListBillByDate
-@checkIn date, @checkOut date
+CREATE PROC USP_GetListBillByDate
+    @checkIn DATE, 
+    @checkOut DATE
 AS
 BEGIN
-SELECT t.nametable, b.totalPrice, DateCheckIn, DateCheckOut, discount
-FROM dbo.Bill as b, dbo.TableFood as t
-where DateCheckIn >=@checkIn and DateCheckOut <=@checkOut and b.status=1
-and t.id=b.idTable
-end
-go
+    SELECT 
+        t.nametable AS [Tên bàn], 
+        b.totalPrice AS [Tổng tiền], 
+        b.DateCheckIn AS [Ngày vào], 
+        b.DateCheckOut AS [Ngày ra], 
+        b.discount AS [Giảm giá]
+    FROM 
+        dbo.Bill AS b
+    JOIN 
+        dbo.TableFood AS t ON t.id = b.idTable
+    WHERE 
+        b.DateCheckIn >= @checkIn 
+        AND b.DateCheckOut <= @checkOut 
+        AND b.status = 1;
+END;
+GO
+

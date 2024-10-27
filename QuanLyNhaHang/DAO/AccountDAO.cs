@@ -1,4 +1,5 @@
 ﻿using Microsoft.Identity.Client;
+using QuanLyNhaHang.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,6 +26,24 @@ namespace QuanLyNhaHang.DAO
             DataTable result =DataProvider.Instance.ExecuteQuery(query, new object[] {userName , passWord});
             return result.Rows.Count > 0;
         }
+        public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[] { userName, displayName, pass, newPass });
+
+            return result > 0;
+        }
+        public Account GetAccountByUserName(string userName)
+        {
+            string query = "SELECT * FROM account WHERE userName = @userName";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { userName });
+
+            if (data.Rows.Count > 0)
+            {
+                return new Account(data.Rows[0]);
+            }
+            return null;
+        }
+
 
     }
 }
