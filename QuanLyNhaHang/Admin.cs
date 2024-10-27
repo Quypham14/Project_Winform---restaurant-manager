@@ -23,6 +23,12 @@ namespace QuanLyNhaHang
 
 
         #region methods
+        List<Food> SearchFoodByName(string name)
+        {
+            List<Food> listFood = FoodDAO.Instance.SearchFoodByName(name);
+
+            return listFood;
+        }
         void Load()
         {
             dataGridViewFood.DataSource = foodList;
@@ -78,37 +84,40 @@ namespace QuanLyNhaHang
 
         private void textBoxFoodID_TextChanged(object sender, EventArgs e)
         {
-            if (dataGridViewFood.SelectedCells.Count > 0)
+            try
             {
-                DataGridViewRow selectedRow = dataGridViewFood.SelectedCells[0].OwningRow;
-
-                // Kiểm tra nếu CategoryID hợp lệ
-                if (selectedRow.Cells["CategoryID"].Value != null)
+                if (dataGridViewFood.SelectedCells.Count > 0)
                 {
-                    int id = (int)selectedRow.Cells["CategoryID"].Value;
-                    Category category = CategoryDAO.Instance.GetCategoryByID(id);
+                    DataGridViewRow selectedRow = dataGridViewFood.SelectedCells[0].OwningRow;
 
-                    if (category != null)
+                    // Kiểm tra nếu CategoryID hợp lệ
+                    if (selectedRow.Cells["CategoryID"].Value != null)
                     {
-                        // Cập nhật ComboBox với danh mục
-                        comboBoxFoodCatagory.SelectedItem = category;
+                        int id = (int)selectedRow.Cells["CategoryID"].Value;
+                        Category category = CategoryDAO.Instance.GetCategoryByID(id);
 
-                        // Tìm và chọn đúng index trong ComboBox
-                        int index = comboBoxFoodCatagory.FindStringExact(category.Name);
-                        if (index >= 0)
+                        if (category != null)
                         {
-                            comboBoxFoodCatagory.SelectedIndex = index;
+                            // Cập nhật ComboBox với danh mục
+                            comboBoxFoodCatagory.SelectedItem = category;
+
+                            // Tìm và chọn đúng index trong ComboBox
+                            int index = comboBoxFoodCatagory.FindStringExact(category.Name);
+                            if (index >= 0)
+                            {
+                                comboBoxFoodCatagory.SelectedIndex = index;
+                            }
                         }
                     }
-                }
 
-                // Cập nhật giá thực phẩm
-                if (selectedRow.Cells["Price"].Value != null)
-                {
-                    float price = (float)selectedRow.Cells["Price"].Value;
-                    numericFoodPrice.Value = (decimal)price; // Cập nhật giá vào NumericUpDown
+                    // Cập nhật giá thực phẩm
+                    if (selectedRow.Cells["Price"].Value != null)
+                    {
+                        float price = (float)selectedRow.Cells["Price"].Value;
+                        numericFoodPrice.Value = (decimal)price; // Cập nhật giá vào NumericUpDown
+                    }
                 }
-            }
+            } catch { }
         }
         private void buttonAddFood_Click(object sender, EventArgs e)
         {
@@ -128,8 +137,6 @@ namespace QuanLyNhaHang
                 MessageBox.Show("Có lỗi khi thêm thức ăn");
             }
         }
-        #endregion
-
         private void buttonEditFood_Click(object sender, EventArgs e)
         {
             string name = textBoxFoodName.Text;
@@ -167,6 +174,11 @@ namespace QuanLyNhaHang
             }
         }
 
+        private void buttonSearchFood_Click(object sender, EventArgs e)
+        {
+            foodList.DataSource = SearchFoodByName(textBoxSearchFoodName.Text);
+        }
+
         private event EventHandler insertFood;
         public event EventHandler InsertFood
         {
@@ -188,4 +200,5 @@ namespace QuanLyNhaHang
             remove { updateFood -= value; }
         }
     }
+    #endregion
 }
