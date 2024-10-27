@@ -315,7 +315,6 @@
             textBoxFoodName.Location = new Point(147, 16);
             textBoxFoodName.Margin = new Padding(4);
             textBoxFoodName.Name = "textBoxFoodName";
-            textBoxFoodName.ReadOnly = true;
             textBoxFoodName.Size = new Size(193, 26);
             textBoxFoodName.TabIndex = 1;
             textBoxFoodName.Text = " ";
@@ -377,7 +376,6 @@
             textBoxFoodID.Location = new Point(147, 16);
             textBoxFoodID.Margin = new Padding(4);
             textBoxFoodID.Name = "textBoxFoodID";
-            textBoxFoodID.ReadOnly = true;
             textBoxFoodID.Size = new Size(193, 26);
             textBoxFoodID.TabIndex = 1;
             textBoxFoodID.Text = " ";
@@ -425,6 +423,7 @@
             buttonEditFood.TabIndex = 2;
             buttonEditFood.Text = "Sửa";
             buttonEditFood.UseVisualStyleBackColor = false;
+            buttonEditFood.Click += buttonEditFood_Click;
             // 
             // buttonDeleteFood
             // 
@@ -435,6 +434,7 @@
             buttonDeleteFood.TabIndex = 1;
             buttonDeleteFood.Text = "Xóa";
             buttonDeleteFood.UseVisualStyleBackColor = false;
+            buttonDeleteFood.Click += buttonDeleteFood_Click;
             // 
             // buttonAddFood
             // 
@@ -445,6 +445,7 @@
             buttonAddFood.TabIndex = 0;
             buttonAddFood.Text = "Thêm";
             buttonAddFood.UseVisualStyleBackColor = false;
+            buttonAddFood.Click += buttonAddFood_Click;
             // 
             // panel3
             // 

@@ -132,10 +132,22 @@ namespace QuanLyNhaHang
         }
         private void buttonAddFood_Click(object sender, EventArgs e)
         {
-            Table table = listViewBill.Tag as Table;
+            if (listViewBill.Tag is not Table table)
+            {
+                MessageBox.Show("Vui lòng chọn bàn trước khi thêm món.");
+                return;
+            }
+
+            if (comboBoxFood.SelectedItem is not Food food)
+            {
+                MessageBox.Show("Vui lòng chọn món ăn.");
+                return;
+            }
+
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
-            int foodID = (comboBoxFood.SelectedItem as Food).ID;
+            int foodID = food.ID;
             int count = (int)numericUpDownFoodCount.Value;
+
             if (idBill == -1)
             {
                 BillDAO.Instance.InsertBill(table.ID);
@@ -145,9 +157,11 @@ namespace QuanLyNhaHang
             {
                 BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
             }
+
             ShowBill(table.ID);
             LoadTable();
         }
+
         private void buttonCheckout_Click(object sender, EventArgs e)
         {
             Table table = listViewBill.Tag as Table;
@@ -188,12 +202,35 @@ namespace QuanLyNhaHang
                 LoadTable();
             }
         }
-        #endregion
-
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Admin f = new Admin();
+            f.InsertFood += f_InsertFood;
+            f.DeleteFood += f_DeleteFood;
+            f.UpdateFood += f_UpdateFood;
             f.ShowDialog();
         }
+        void f_UpdateFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((comboBoxCategory.SelectedItem as Category).ID);
+            if (listViewBill.Tag != null)
+                ShowBill((listViewBill.Tag as Table).ID);
+        }
+
+        void f_DeleteFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((comboBoxCategory.SelectedItem as Category).ID);
+            if (listViewBill.Tag != null)
+                ShowBill((listViewBill.Tag as Table).ID);
+            LoadTable();
+        }
+
+        void f_InsertFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCategoryID((comboBoxCategory.SelectedItem as Category).ID);
+            if (listViewBill.Tag != null)
+                ShowBill((listViewBill.Tag as Table).ID);
+        }
+        #endregion
     }
 }

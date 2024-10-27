@@ -17,6 +17,10 @@ namespace QuanLyNhaHang.DAO
             private set { BillInfoDAO.instance= value; }
         }
         private BillInfoDAO() { }
+        public void DeleteBillInfoByFoodID(int id)
+        {
+           DataProvider.Instance.ExecuteQuery("delete dbo.Billinfo where idFood = "+ id);
+        }
         public List<BillInfo> GetListBillInfo(int id)
         {
             List<BillInfo> listBillInfo=new List<BillInfo> ();

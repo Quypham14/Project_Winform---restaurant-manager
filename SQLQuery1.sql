@@ -34,13 +34,12 @@ CREATE TABLE FoodCategory (
     nametable NVARCHAR(100) NOT NULL DEFAULT N'ĐÃ ĐẶT TÊN ĐÂU'
 );
 GO
-
 -- Tạo bảng món ăn
 CREATE TABLE Food (
     id INT IDENTITY PRIMARY KEY,
     name NVARCHAR(100) NOT NULL DEFAULT N'ĐÃ ĐẶT TÊN ĐÂU',
     idCategory INT NOT NULL,
-    price FLOAT NOT NULL,
+    price Float NOT NULL
     FOREIGN KEY (idCategory) REFERENCES dbo.FoodCategory(id)
 );
 GO
@@ -355,4 +354,62 @@ BEGIN
         AND b.status = 1;
 END;
 GO
+CREATE PROC USP_UpdateAccount
+@userName NVARCHAR(100), @displayName NVARCHAR(100), @password NVARCHAR(100), @newPassword NVARCHAR(100)
+AS
+BEGIN
+	DECLARE @isRightPass INT = 0
+	
+	SELECT @isRightPass = COUNT(*) FROM dbo.Account WHERE UserName = @userName AND PassWord = @password
+	
+	IF (@isRightPass = 1)
+	BEGIN
+		IF (@newPassword = NULL OR @newPassword = '')
+		BEGIN
+			UPDATE dbo.Account SET DisplayName = @displayName WHERE UserName = @userName
+		END		
+		ELSE
+			UPDATE dbo.Account SET DisplayName = @displayName, PassWord = @newPassword WHERE UserName = @userName
+	end
+END
+GO
+CREATE TRIGGER UTG_DeleteBillinfo
+ON dbo.Billinfo
+FOR DELETE
+AS 
+BEGIN
+    DECLARE @idBill INT, @idTable INT;
 
+    -- Lặp qua từng dòng trong bảng Deleted để xử lý
+    DECLARE cur CURSOR FOR
+    SELECT idBill FROM Deleted;
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @idBill;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Lấy idTable từ hóa đơn liên quan
+        SELECT @idTable = idTable FROM dbo.Bill WHERE id = @idBill;
+
+        -- Kiểm tra xem còn chi tiết hóa đơn nào chưa thanh toán không
+        IF NOT EXISTS (
+            SELECT 1 
+            FROM dbo.Billinfo AS bi
+            JOIN dbo.Bill AS b ON b.id = bi.idBill
+            WHERE b.id = @idBill AND b.status = 0
+        )
+        BEGIN
+            -- Cập nhật trạng thái bàn thành "Trống" nếu không còn món ăn nào
+            UPDATE dbo.TableFood
+            SET status = N'Trống'
+            WHERE id = @idTable;
+        END
+
+        FETCH NEXT FROM cur INTO @idBill;
+    END
+
+    CLOSE cur;
+    DEALLOCATE cur;
+END;
+GO
