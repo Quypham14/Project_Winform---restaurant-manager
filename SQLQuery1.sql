@@ -414,4 +414,44 @@ BEGIN
 END;
 GO
 CREATE FUNCTION [dbo].[fuConvertToUnsign1] ( @strInput NVARCHAR(4000) ) RETURNS NVARCHAR(4000) AS BEGIN IF @strInput IS NULL RETURN @strInput IF @strInput = '' RETURN @strInput DECLARE @RT NVARCHAR(4000) DECLARE @SIGN_CHARS NCHAR(136) DECLARE @UNSIGN_CHARS NCHAR (136) SET @SIGN_CHARS = N'ăâđêôơưàảãạáằẳẵặắầẩẫậấèẻẽẹéềểễệế ìỉĩịíòỏõọóồổỗộốờởỡợớùủũụúừửữựứỳỷỹỵý ĂÂĐÊÔƠƯÀẢÃẠÁẰẲẴẶẮẦẨẪẬẤÈẺẼẸÉỀỂỄỆẾÌỈĨỊÍ ÒỎÕỌÓỒỔỖỘỐỜỞỠỢỚÙỦŨỤÚỪỬỮỰỨỲỶỸỴÝ' +NCHAR(272)+ NCHAR(208) SET @UNSIGN_CHARS = N'aadeoouaaaaaaaaaaaaaaaeeeeeeeeee iiiiiooooooooooooooouuuuuuuuuuyyyyy AADEOOUAAAAAAAAAAAAAAAEEEEEEEEEEIIIII OOOOOOOOOOOOOOOUUUUUUUUUUYYYYYDD' DECLARE @COUNTER int DECLARE @COUNTER1 int SET @COUNTER = 1 WHILE (@COUNTER <=LEN(@strInput)) BEGIN SET @COUNTER1 = 1 WHILE (@COUNTER1 <=LEN(@SIGN_CHARS)+1) BEGIN IF UNICODE(SUBSTRING(@SIGN_CHARS, @COUNTER1,1)) = UNICODE(SUBSTRING(@strInput,@COUNTER ,1) ) BEGIN IF @COUNTER=1 SET @strInput = SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)-1) ELSE SET @strInput = SUBSTRING(@strInput, 1, @COUNTER-1) +SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1) + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)- @COUNTER) BREAK END SET @COUNTER1 = @COUNTER1 +1 END SET @COUNTER = @COUNTER +1 END SET @strInput = replace(@strInput,' ','-') RETURN @strInput END
+GO
+CREATE PROCEDURE USP_MergeTable
+    @mainTableID INT,
+    @otherTableID INT
+AS
+BEGIN
+    DECLARE @idBillMain INT, @idBillOther INT;
+
+    -- Lấy ID hóa đơn của bàn chính và bàn phụ
+    SELECT @idBillMain = id FROM Bill WHERE idTable = @mainTableID AND status = 0;
+    SELECT @idBillOther = id FROM Bill WHERE idTable = @otherTableID AND status = 0;
+
+    IF @idBillMain IS NULL
+    BEGIN
+        -- Nếu bàn chính không có hóa đơn, chuyển hóa đơn từ bàn phụ sang bàn chính
+        UPDATE Bill SET idTable = @mainTableID WHERE id = @idBillOther;
+    END
+    ELSE IF @idBillOther IS NOT NULL
+    BEGIN
+        -- Nếu cả hai bàn đều có hóa đơn, hợp nhất hóa đơn từ bàn phụ sang bàn chính
+        UPDATE BillInfo
+        SET idBill = @idBillMain
+        WHERE idBill = @idBillOther;
+
+        -- Xóa hóa đơn cũ của bàn phụ
+        DELETE FROM Bill WHERE id = @idBillOther;
+    END
+
+    -- Cập nhật trạng thái bàn chính theo trạng thái hiện tại của bàn phụ
+    UPDATE TableFood
+    SET status = N'Có người'
+    WHERE id = @mainTableID;
+
+    -- Nếu không còn hóa đơn nào trên bàn phụ, chuyển bàn phụ về trạng thái "Trống"
+    IF NOT EXISTS (SELECT 1 FROM Bill WHERE idTable = @otherTableID AND status = 0)
+    BEGIN
+        UPDATE TableFood SET status = N'Trống' WHERE id = @otherTableID;
+    END
+END
+
 

@@ -52,5 +52,10 @@ namespace QuanLyNhaHang.DAO
 
             return tablelist;
         }
+        public void MergeTable(int mainTableID, int otherTableID)
+        {
+            string query = "USP_MergeTable @mainTableID , @otherTableID";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { mainTableID, otherTableID });
+        }
     }
 }

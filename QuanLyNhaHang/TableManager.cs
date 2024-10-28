@@ -90,17 +90,31 @@ namespace QuanLyNhaHang
             Thread.CurrentThread.CurrentCulture = culture;
             textBoxTotalPrice.Text = totalPrice.ToString("c");
         }
-        void LoadComboboxTable(ComboBox cb)
+        void LoadComboboxTable(ComboBox cb, int excludeTableID = -1)
         {
-            cb.DataSource = TableDAO.Instance.LoadTableList();
+            List<Table> tableList = TableDAO.Instance.LoadTableList();
+            cb.DataSource = tableList.Where(t => t.ID != excludeTableID).ToList();
             cb.DisplayMember = "Name";
         }
+
         #endregion
         #region Events
+        private void thanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         buttonCheckout_Click(this, new EventArgs());
+        }
+
+        private void thêmMónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          buttonAddFood_Click(this, new EventArgs());
+        }
         private void Btn_Click(object? sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
             listViewBill.Tag = (sender as Button).Tag;
+
+            // Cập nhật danh sách bàn cần ghép, loại trừ bàn đã chọn
+            LoadComboboxTable(comboBoxMergeTable, tableID);
             ShowBill(tableID);
         }
 
@@ -205,7 +219,7 @@ namespace QuanLyNhaHang
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Admin f = new Admin();
-            f.loginAccount =LoginAccount;
+            f.loginAccount = LoginAccount;
             f.InsertFood += f_InsertFood;
             f.DeleteFood += f_DeleteFood;
             f.UpdateFood += f_UpdateFood;
@@ -231,6 +245,33 @@ namespace QuanLyNhaHang
             LoadFoodListByCategoryID((comboBoxCategory.SelectedItem as Category).ID);
             if (listViewBill.Tag != null)
                 ShowBill((listViewBill.Tag as Table).ID);
+        }
+        private void buttonMergeTable_Click(object sender, EventArgs e)
+        {
+            if (listViewBill.Tag is not Table mainTable)
+            {
+                MessageBox.Show("Vui lòng chọn bàn chính.");
+                return;
+            }
+
+            if (comboBoxMergeTable.SelectedItem is not Table otherTable)
+            {
+                MessageBox.Show("Vui lòng chọn bàn cần ghép.");
+                return;
+            }
+
+            if (mainTable.ID == otherTable.ID)
+            {
+                MessageBox.Show("Không thể ghép bàn với chính nó.");
+                return;
+            }
+
+            // Thực hiện ghép bàn
+            TableDAO.Instance.MergeTable(mainTable.ID, otherTable.ID);
+
+            // Cập nhật lại giao diện
+            LoadTable();
+            ShowBill(mainTable.ID);
         }
         #endregion
     }

@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:tablemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,40 +15,8 @@
       "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:tablemanager.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\dao\\billdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:dao\\billdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\dao\\categorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:dao\\categorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\dao\\fooddao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:dao\\fooddao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\dao\\billinfodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:dao\\billinfodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\admin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:admin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|d:\\project_winform---restaurant-manager\\quanlynhahang\\dao\\tabledao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BC13C93-7E69-4883-A71C-7FB698C4CDA4}|QuanLyNhaHang.csproj|solutionrelative:dao\\tabledao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,168 +42,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TableManager.Designer.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.Designer.cs",
-              "RelativeDocumentMoniker": "TableManager.Designer.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.Designer.cs",
-              "RelativeToolTip": "TableManager.Designer.cs",
-              "ViewState": "AgIAAC0BAAAAAAAAAAAowDMBAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T03:49:22.267Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AccountDAO.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\AccountDAO.cs",
-              "RelativeDocumentMoniker": "DAO\\AccountDAO.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\AccountDAO.cs*",
-              "RelativeToolTip": "DAO\\AccountDAO.cs*",
-              "ViewState": "AgIAACYAAAAgzMzMzOw8wEgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T02:43:57.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TableManager.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs",
-              "RelativeDocumentMoniker": "TableManager.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs*",
-              "RelativeToolTip": "TableManager.cs*",
-              "ViewState": "AgIAALUAAAAAAAAAAAAQwM8AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T11:18:54.535Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Login.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Login.cs",
-              "RelativeDocumentMoniker": "Login.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Login.cs",
-              "RelativeToolTip": "Login.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwB8AAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T15:02:49.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BillDAO.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\BillDAO.cs",
-              "RelativeDocumentMoniker": "DAO\\BillDAO.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\BillDAO.cs",
-              "RelativeToolTip": "DAO\\BillDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T15:02:00.62Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Admin.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Admin.cs",
-              "RelativeDocumentMoniker": "Admin.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Admin.cs*",
-              "RelativeToolTip": "Admin.cs*",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAuwFsAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T08:19:40.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "TableManager.cs [Design]",
               "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs",
               "RelativeDocumentMoniker": "TableManager.cs",
               "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs [Design]*",
               "RelativeToolTip": "TableManager.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T16:01:12.713Z",
+              "WhenOpened": "2024-10-28T05:43:37.172Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Admin.cs [Design]",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Admin.cs",
-              "RelativeDocumentMoniker": "Admin.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Admin.cs [Design]*",
-              "RelativeToolTip": "Admin.cs [Design]*",
+              "DocumentIndex": 2,
+              "Title": "TableManager.Designer.cs",
+              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.Designer.cs",
+              "RelativeDocumentMoniker": "TableManager.Designer.cs",
+              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.Designer.cs*",
+              "RelativeToolTip": "TableManager.Designer.cs*",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAowH8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T11:00:24.014Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CategoryDAO.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\CategoryDAO.cs",
-              "RelativeDocumentMoniker": "DAO\\CategoryDAO.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\CategoryDAO.cs",
-              "RelativeToolTip": "DAO\\CategoryDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T09:38:45.144Z",
+              "WhenOpened": "2024-10-28T05:43:24.406Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FoodDAO.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\FoodDAO.cs",
-              "RelativeDocumentMoniker": "DAO\\FoodDAO.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\FoodDAO.cs",
-              "RelativeToolTip": "DAO\\FoodDAO.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAiwDoAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "TableDAO.cs",
+              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\TableDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\TableDAO.cs",
+              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\TableDAO.cs",
+              "RelativeToolTip": "DAO\\TableDAO.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwDoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T08:04:08.431Z",
+              "WhenOpened": "2024-10-28T05:23:09.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Login.cs",
-              "RelativeDocumentMoniker": "Login.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Login.cs [Design]",
-              "RelativeToolTip": "Login.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "TableManager.cs",
+              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs",
+              "RelativeDocumentMoniker": "TableManager.cs",
+              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\TableManager.cs*",
+              "RelativeToolTip": "TableManager.cs*",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAuwGwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T15:02:45.851Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "BillInfoDAO.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\BillInfoDAO.cs",
-              "RelativeDocumentMoniker": "DAO\\BillInfoDAO.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\DAO\\BillInfoDAO.cs",
-              "RelativeToolTip": "DAO\\BillInfoDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T15:25:56.609Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Admin.Designer.cs",
-              "DocumentMoniker": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Admin.Designer.cs",
-              "RelativeDocumentMoniker": "Admin.Designer.cs",
-              "ToolTip": "D:\\Project_Winform---restaurant-manager\\QuanLyNhaHang\\Admin.Designer.cs*",
-              "RelativeToolTip": "Admin.Designer.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T11:09:35.671Z",
+              "WhenOpened": "2024-10-28T05:22:43.047Z",
               "EditorCaption": ""
             }
           ]

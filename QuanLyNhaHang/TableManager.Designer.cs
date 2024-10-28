@@ -34,6 +34,9 @@
             thôngTinTaiKhoanToolStripMenuItem = new ToolStripMenuItem();
             thôngTinCaNhânToolStripMenuItem = new ToolStripMenuItem();
             đăngXuâtToolStripMenuItem = new ToolStripMenuItem();
+            chứcNăngToolStripMenuItem = new ToolStripMenuItem();
+            thanhToánToolStripMenuItem = new ToolStripMenuItem();
+            thêmMónToolStripMenuItem = new ToolStripMenuItem();
             panel2 = new Panel();
             listViewBill = new ListView();
             columnHeader1 = new ColumnHeader();
@@ -42,11 +45,12 @@
             columnHeader4 = new ColumnHeader();
             panel3 = new Panel();
             panel4 = new Panel();
+            buttonMergeTable = new Button();
+            comboBoxMergeTable = new ComboBox();
             comboBoxSwitchTable = new ComboBox();
             textBoxTotalPrice = new TextBox();
             buttonSwitchTable = new Button();
             numericUpDownDiscount = new NumericUpDown();
-            buttonDiscount = new Button();
             buttonCheckout = new Button();
             panel5 = new Panel();
             numericUpDownFoodCount = new NumericUpDown();
@@ -65,7 +69,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { adminToolStripMenuItem, thôngTinTaiKhoanToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { adminToolStripMenuItem, thôngTinTaiKhoanToolStripMenuItem, chứcNăngToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
@@ -100,6 +104,29 @@
             đăngXuâtToolStripMenuItem.Size = new Size(170, 22);
             đăngXuâtToolStripMenuItem.Text = "Đăng xuất";
             đăngXuâtToolStripMenuItem.Click += đăngXuâtToolStripMenuItem_Click;
+            // 
+            // chứcNăngToolStripMenuItem
+            // 
+            chứcNăngToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { thanhToánToolStripMenuItem, thêmMónToolStripMenuItem });
+            chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
+            chứcNăngToolStripMenuItem.Size = new Size(77, 20);
+            chứcNăngToolStripMenuItem.Text = "Chức năng";
+            // 
+            // thanhToánToolStripMenuItem
+            // 
+            thanhToánToolStripMenuItem.Name = "thanhToánToolStripMenuItem";
+            thanhToánToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D1;
+            thanhToánToolStripMenuItem.Size = new Size(180, 22);
+            thanhToánToolStripMenuItem.Text = "Thanh toán";
+            thanhToánToolStripMenuItem.Click += thanhToánToolStripMenuItem_Click;
+            // 
+            // thêmMónToolStripMenuItem
+            // 
+            thêmMónToolStripMenuItem.Name = "thêmMónToolStripMenuItem";
+            thêmMónToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D2;
+            thêmMónToolStripMenuItem.Size = new Size(180, 22);
+            thêmMónToolStripMenuItem.Text = "Thêm món";
+            thêmMónToolStripMenuItem.Click += thêmMónToolStripMenuItem_Click;
             // 
             // panel2
             // 
@@ -149,16 +176,36 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(buttonMergeTable);
+            panel4.Controls.Add(comboBoxMergeTable);
             panel4.Controls.Add(comboBoxSwitchTable);
             panel4.Controls.Add(textBoxTotalPrice);
             panel4.Controls.Add(buttonSwitchTable);
             panel4.Controls.Add(numericUpDownDiscount);
-            panel4.Controls.Add(buttonDiscount);
             panel4.Controls.Add(buttonCheckout);
             panel4.Location = new Point(521, 408);
             panel4.Name = "panel4";
             panel4.Size = new Size(441, 73);
             panel4.TabIndex = 2;
+            // 
+            // buttonMergeTable
+            // 
+            buttonMergeTable.BackColor = Color.Violet;
+            buttonMergeTable.Location = new Point(91, 3);
+            buttonMergeTable.Name = "buttonMergeTable";
+            buttonMergeTable.Size = new Size(86, 35);
+            buttonMergeTable.TabIndex = 11;
+            buttonMergeTable.Text = "Ghép bàn";
+            buttonMergeTable.UseVisualStyleBackColor = false;
+            buttonMergeTable.Click += buttonMergeTable_Click;
+            // 
+            // comboBoxMergeTable
+            // 
+            comboBoxMergeTable.FormattingEnabled = true;
+            comboBoxMergeTable.Location = new Point(91, 39);
+            comboBoxMergeTable.Name = "comboBoxMergeTable";
+            comboBoxMergeTable.Size = new Size(83, 23);
+            comboBoxMergeTable.TabIndex = 10;
             // 
             // comboBoxSwitchTable
             // 
@@ -172,7 +219,7 @@
             // 
             textBoxTotalPrice.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             textBoxTotalPrice.ForeColor = Color.OrangeRed;
-            textBoxTotalPrice.Location = new Point(210, 38);
+            textBoxTotalPrice.Location = new Point(210, 10);
             textBoxTotalPrice.Name = "textBoxTotalPrice";
             textBoxTotalPrice.ReadOnly = true;
             textBoxTotalPrice.Size = new Size(119, 24);
@@ -193,21 +240,11 @@
             // 
             // numericUpDownDiscount
             // 
-            numericUpDownDiscount.Location = new Point(103, 38);
+            numericUpDownDiscount.Location = new Point(210, 39);
             numericUpDownDiscount.Name = "numericUpDownDiscount";
-            numericUpDownDiscount.Size = new Size(86, 23);
+            numericUpDownDiscount.Size = new Size(119, 23);
             numericUpDownDiscount.TabIndex = 5;
             numericUpDownDiscount.TextAlign = HorizontalAlignment.Center;
-            // 
-            // buttonDiscount
-            // 
-            buttonDiscount.BackColor = Color.Orange;
-            buttonDiscount.Location = new Point(103, 3);
-            buttonDiscount.Name = "buttonDiscount";
-            buttonDiscount.Size = new Size(86, 35);
-            buttonDiscount.TabIndex = 4;
-            buttonDiscount.Text = "Giảm giá";
-            buttonDiscount.UseVisualStyleBackColor = false;
             // 
             // buttonCheckout
             // 
@@ -322,7 +359,6 @@
         private ComboBox comboBoxFood;
         private Button buttonCheckout;
         private FlowLayoutPanel flowLayoutPanelTable;
-        private Button buttonDiscount;
         private NumericUpDown numericUpDownDiscount;
         private ToolStripMenuItem adminToolStripMenuItem;
         private Button buttonSwitchTable;
@@ -332,6 +368,10 @@
         private ColumnHeader columnHeader4;
         private TextBox textBoxTotalPrice;
         private ComboBox comboBoxSwitchTable;
-
+        private Button buttonMergeTable;
+        private ComboBox comboBoxMergeTable;
+        private ToolStripMenuItem chứcNăngToolStripMenuItem;
+        private ToolStripMenuItem thanhToánToolStripMenuItem;
+        private ToolStripMenuItem thêmMónToolStripMenuItem;
     }
 }
