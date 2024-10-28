@@ -75,6 +75,11 @@
             dateTimePickerToDate = new DateTimePicker();
             dateTimePickerFromDate = new DateTimePicker();
             panel1 = new Panel();
+            textBoxCurrentPage = new TextBox();
+            buttonNextBillPage = new Button();
+            buttonLastBillPage = new Button();
+            buttonPrevioursBillPage = new Button();
+            buttonFirstBillPage = new Button();
             dataGridViewBill = new DataGridView();
             tabControlFood = new TabControl();
             tabPageAccount.SuspendLayout();
@@ -581,11 +586,67 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(textBoxCurrentPage);
+            panel1.Controls.Add(buttonNextBillPage);
+            panel1.Controls.Add(buttonLastBillPage);
+            panel1.Controls.Add(buttonPrevioursBillPage);
+            panel1.Controls.Add(buttonFirstBillPage);
             panel1.Controls.Add(dataGridViewBill);
             panel1.Location = new Point(6, 49);
             panel1.Name = "panel1";
             panel1.Size = new Size(765, 367);
             panel1.TabIndex = 0;
+            // 
+            // textBoxCurrentPage
+            // 
+            textBoxCurrentPage.Location = new Point(321, 331);
+            textBoxCurrentPage.Name = "textBoxCurrentPage";
+            textBoxCurrentPage.ReadOnly = true;
+            textBoxCurrentPage.Size = new Size(107, 23);
+            textBoxCurrentPage.TabIndex = 5;
+            textBoxCurrentPage.Text = "1";
+            textBoxCurrentPage.TextAlign = HorizontalAlignment.Center;
+            textBoxCurrentPage.TextChanged += textBoxCurrentPage_TextChanged;
+            // 
+            // buttonNextBillPage
+            // 
+            buttonNextBillPage.Location = new Point(574, 323);
+            buttonNextBillPage.Name = "buttonNextBillPage";
+            buttonNextBillPage.Size = new Size(91, 36);
+            buttonNextBillPage.TabIndex = 4;
+            buttonNextBillPage.Text = "Next";
+            buttonNextBillPage.UseVisualStyleBackColor = true;
+            buttonNextBillPage.Click += buttonNextBillPage_Click;
+            // 
+            // buttonLastBillPage
+            // 
+            buttonLastBillPage.Location = new Point(671, 323);
+            buttonLastBillPage.Name = "buttonLastBillPage";
+            buttonLastBillPage.Size = new Size(91, 36);
+            buttonLastBillPage.TabIndex = 3;
+            buttonLastBillPage.Text = "Last";
+            buttonLastBillPage.UseVisualStyleBackColor = true;
+            buttonLastBillPage.Click += buttonLastBillPage_Click;
+            // 
+            // buttonPrevioursBillPage
+            // 
+            buttonPrevioursBillPage.Location = new Point(100, 323);
+            buttonPrevioursBillPage.Name = "buttonPrevioursBillPage";
+            buttonPrevioursBillPage.Size = new Size(91, 36);
+            buttonPrevioursBillPage.TabIndex = 2;
+            buttonPrevioursBillPage.Text = "Previours";
+            buttonPrevioursBillPage.UseVisualStyleBackColor = true;
+            buttonPrevioursBillPage.Click += buttonPrevioursBillPage_Click;
+            // 
+            // buttonFirstBillPage
+            // 
+            buttonFirstBillPage.Location = new Point(3, 323);
+            buttonFirstBillPage.Name = "buttonFirstBillPage";
+            buttonFirstBillPage.Size = new Size(91, 36);
+            buttonFirstBillPage.TabIndex = 1;
+            buttonFirstBillPage.Text = "First";
+            buttonFirstBillPage.UseVisualStyleBackColor = true;
+            buttonFirstBillPage.Click += buttonFirstBillPage_Click;
             // 
             // dataGridViewBill
             // 
@@ -594,7 +655,7 @@
             dataGridViewBill.Location = new Point(3, 3);
             dataGridViewBill.Name = "dataGridViewBill";
             dataGridViewBill.RowHeadersWidth = 51;
-            dataGridViewBill.Size = new Size(759, 363);
+            dataGridViewBill.Size = new Size(759, 317);
             dataGridViewBill.TabIndex = 0;
             // 
             // tabControlFood
@@ -646,6 +707,7 @@
             tabPageBill.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBill).EndInit();
             tabControlFood.ResumeLayout(false);
             ResumeLayout(false);
@@ -702,5 +764,10 @@
         private DataGridView dataGridViewBill;
         private TabControl tabControlFood;
         private NumericUpDown numericUpDown1;
+        private Button buttonFirstBillPage;
+        private Button buttonNextBillPage;
+        private Button buttonLastBillPage;
+        private Button buttonPrevioursBillPage;
+        private TextBox textBoxCurrentPage;
     }
 }

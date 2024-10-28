@@ -284,10 +284,52 @@ namespace QuanLyNhaHang
 
         private void buttonReversePassword_Click(object sender, EventArgs e)
         {
-                string userName = textBoxNameAccount.Text;
+            string userName = textBoxNameAccount.Text;
 
-                ResetPass(userName);
+            ResetPass(userName);
 
+        }
+
+        private void buttonFirstBillPage_Click(object sender, EventArgs e)
+        {
+            textBoxCurrentPage.Text = "1";
+        }
+
+        private void buttonLastBillPage_Click(object sender, EventArgs e)
+        {
+            int sumRecord = BillDAO.Instance.GetNumBillListByDate(dateTimePickerFromDate.Value, dateTimePickerToDate.Value);
+            int lastPage = sumRecord / 10;
+            if (sumRecord % 10 != 0)
+            {
+                lastPage++;
+            }
+            textBoxCurrentPage.Text = lastPage.ToString();
+        }
+
+        private void textBoxCurrentPage_TextChanged(object sender, EventArgs e)
+        {
+            dataGridViewBill.DataSource = BillDAO.Instance.GetBillListByDateAndPage(dateTimePickerFromDate.Value, dateTimePickerToDate.Value, Convert.ToInt32(textBoxCurrentPage.Text));
+        }
+
+        private void buttonPrevioursBillPage_Click(object sender, EventArgs e)
+        {
+            int page=Convert.ToInt32(textBoxCurrentPage.Text);
+            if (page > 1)
+            {
+                page--;
+            }
+            textBoxCurrentPage.Text=page.ToString();
+        }
+
+        private void buttonNextBillPage_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(textBoxCurrentPage.Text);
+            int sumRecord = BillDAO.Instance.GetNumBillListByDate(dateTimePickerFromDate.Value, dateTimePickerToDate.Value);
+            if(page<sumRecord)
+            {
+                page++;
+            }
+            textBoxCurrentPage.Text=page.ToString() ;
         }
 
         private event EventHandler insertFood;
